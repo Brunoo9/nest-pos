@@ -23,7 +23,9 @@ export class CategoriesService {
   async findOne(id: number) {
     const category = await this.categoryRepository.findOneBy({ id });
     if (!category) {
-      throw new NotFoundException('La categoría no existe.');
+      throw new NotFoundException(
+        `La categoría con el id: ${id} no fue encontrada.`,
+      );
     }
     return category;
   }

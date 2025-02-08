@@ -9,10 +9,9 @@ import {
 @Injectable()
 export class IdValidationPipe extends ParseIntPipe {
   constructor() {
+    // con super reescribimos un constructor padre , y reescribimos exceptionfactory
     super({
-      exceptionFactory: () => {
-        new BadRequestException('ID no válido.');
-      },
+      exceptionFactory: () => new BadRequestException('El id no es válido.'),
     });
   }
 }
