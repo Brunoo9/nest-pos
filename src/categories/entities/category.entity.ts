@@ -11,6 +11,8 @@ export class Category {
   @Column({ type: 'varchar', length: 60 })
   name: string;
 
-  @OneToMany(() => Product, (product) => product.category, { cascade: true })
+  @OneToMany(() => Product, (product) => product.category, {
+    cascade: true,
+  })
   products: Product[];
 }
